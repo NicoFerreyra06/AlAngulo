@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8"> <title>Panel de Reservas</title>
+</head>
+<body>
+<button id="Boton"> Ver canchas </button>
+
+<h3>Resultados:</h3>
+<ul id="listaCanchas"></ul>
+
+</body>
+</html>
+
+<script>
+    document.getElementById("Boton").addEventListener("click", () => {
+        fetch("http://localhost:8080/court")
+            .then(response => response.json())
+            .then((data) => {
+                console.log("Datos recibidos:", data); // Para que sigas viendo en consola
+
+                // 2. Buscamos la lista en el HTML
+                const lista = document.getElementById("listaCanchas");
+                lista.innerHTML = ""; // Limpiamos por si tocás el botón dos veces
+
+                // 3. Recorremos los datos y creamos los elementos visuales
+                data.forEach(cancha => {
+                    const item = document.createElement("li");
+                    // Asegurate que 'name' y 'price' coincidan con tu DTO de Java
+                    item.innerText = `⚽ ${cancha.name} - $${cancha.price}`;
+                    lista.appendChild(item);
+                });
+            })
+            .catch((error) => {
+                console.error("Error al conectar:", error);
+                alert("Error al cargar las canchas. Revisá la consola.");
+            });
+    });
+</script>
