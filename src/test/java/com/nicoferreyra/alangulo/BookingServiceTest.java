@@ -66,8 +66,8 @@ public class BookingServiceTest {
         Complex complex = new Complex();
         complex.setName("Punto sur");
         complex.setAddress("Maradona 1545");
-        complex.setLatitude(90);
-        complex.setLongitude(180);
+        complex.setLatitude(90.0);
+        complex.setLongitude(180.0);
         complex.setActive(true);
         complex.setId(1L);
 
