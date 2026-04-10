@@ -26,11 +26,12 @@ public class CustomOAuth2UserService extends OidcUserService {
     private List<String> emailsAdmin;
 
     @Override
+    //OidcUser capa de identidad que corre sobre OAuth2 para obtener el perfil del usuario (nombre, email)
     public OidcUser loadUser(OidcUserRequest userRequest) throws OAuth2AuthenticationException {
 
         OidcUser oidcUser = super.loadUser(userRequest);
-
-        String email = Objects.toString(oidcUser.getAttributes().get("email"), "");
+        //Extrae del user request
+        String email = Objects.toString(oidcUser.getAttributes().get("email"), " ");
         String name = Objects.toString(oidcUser.getAttributes().get("name"), "Usuario sin nombre");
         String picture = Objects.toString(oidcUser.getAttributes().get("picture"), null);
 

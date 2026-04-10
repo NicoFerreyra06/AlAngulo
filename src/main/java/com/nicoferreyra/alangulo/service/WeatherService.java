@@ -23,7 +23,7 @@ public class WeatherService {
 
         String string = apiUrl + "?lat=" + latitude + "&lon=" + longitude + "&appid=" + apiKey + "&units=metric";
 
-        return  restTemplate.getForObject(string, WeatherResponseDTO.class);
+        return restTemplate.getForObject(string, WeatherResponseDTO.class);
     }
 
 }

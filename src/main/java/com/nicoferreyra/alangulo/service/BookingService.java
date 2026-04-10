@@ -84,11 +84,11 @@ public class BookingService {
                         "------------------------------------------\n" +
                         "       DETALLE DE TU TURNO\n" +
                         "------------------------------------------\n" +
-                        "📅 Fecha:      %s\n" +
-                        "⏰ Horario:    %s a %s\n" +
-                        "🏟️ Complejo:   %s\n" +
-                        "📍 Cancha:     %s\n" +
-                        "💰 Precio:     $%s\n" +
+                        "Fecha:      %s\n" +
+                        "Horario:    %s a %s\n" +
+                        "Complejo:   %s\n" +
+                        "Cancha:     %s\n" +
+                        "Precio:     $%s\n" +
                         "------------------------------------------\n\n" +
                         "Te esperamos 10 minutos antes. ¡No te olvides las canilleras!\n\n" +
                         "Si necesitás cancelar, recordá hacerlo con 12 horas de anticipación.",
