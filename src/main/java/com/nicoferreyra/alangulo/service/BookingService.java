@@ -12,16 +12,14 @@ import com.nicoferreyra.alangulo.model.User;
 import com.nicoferreyra.alangulo.repository.BookingRepository;
 import com.nicoferreyra.alangulo.repository.CourtRepository;
 import com.nicoferreyra.alangulo.repository.UsersRepository;
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
-import java.time.Duration;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.LocalTime;
+import java.time.*;
 import java.util.List;
 
 @Service
@@ -33,6 +31,7 @@ public class BookingService {
     private final UsersRepository  usersRepository;
     private final EmailService emailService;
 
+    @Transactional
     public BookingResponseDTO createBooking(BookingRequestDTO bookingRequestDTO, String email) {
 
         if (!bookingRequestDTO.getEndTime().isAfter(bookingRequestDTO.getStartTime())) {
@@ -137,6 +136,7 @@ public class BookingService {
 
     }
 
+    @Transactional
     public BookingResponseDTO changeStatusBooking(Long bookingId, String email){
 
         User user = usersRepository.findByEmail(email)
@@ -180,9 +180,9 @@ public class BookingService {
     public void checkBooking(){
 
         List<Booking> bookings = bookingRepository.findByStatusInThePast(
-                LocalDate.now(),
+                LocalDate.now((ZoneId.of("America/Argentina/Buenos_Aires"))),
                 eStatus.CONFIRMED,
-                LocalTime.now());
+                LocalTime.now(ZoneId.of("America/Argentina/Buenos_Aires")));
 
         for (Booking booking : bookings) {
             booking.setStatus(eStatus.FINALIZED);
