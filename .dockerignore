@@ -1,0 +1,15 @@
+# Ignorar carpetas de compilación local
+target/
+!target/*.jar
+
+# Ignorar configuraciones del IDE
+.idea/
+.vscode/
+*.iml
+
+# Ignorar archivos temporales y logs
+logs/
+*.log
+
+data/
+mysql_data/

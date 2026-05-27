@@ -21,4 +21,5 @@ public class AlAnguloApplication {
     public RestTemplate restTemplate() {
         return new RestTemplate();
     }
+
 }

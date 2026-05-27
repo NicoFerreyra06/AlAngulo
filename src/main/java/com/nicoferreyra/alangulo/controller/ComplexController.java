@@ -59,4 +59,9 @@ public class ComplexController {
     public ResponseEntity<WeatherResponseDTO> getWeatherByComplexId(@PathVariable Long id){
         return  new ResponseEntity<>(complexService.getWeatherByComplexId(id), HttpStatus.OK);
     }
+
+    @GetMapping("/prueba-turbo")
+    public String probarTurbo() {
+        return "¡El motor se actualizó en vivo sin apagarse!";
+    }
 }

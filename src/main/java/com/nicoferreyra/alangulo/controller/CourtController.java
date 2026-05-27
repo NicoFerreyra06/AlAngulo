@@ -17,7 +17,6 @@ import java.util.List;
 @RestController
 @RequestMapping("/court")
 @RequiredArgsConstructor
-@CrossOrigin(origins = "*")
 public class CourtController {
 
     private final CourtService courtService;
