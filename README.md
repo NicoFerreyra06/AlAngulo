@@ -4,17 +4,17 @@ Al Angulo es una API REST desarrollada con Java y Spring Boot para la gestión i
 🚀 Tecnologías Principales
 Java 17
 
-Spring Boot 4.0.1
+Spring Boot 3.4.1
 
 Spring Security + OAuth2 (Google Login)
 
-Spring Data JPA (PostgreSQL)
+Spring Data JPA (MySQL)
 
 OpenWeather API (Integración externa para clima)
 
 Lombok
 
-JUnit 5 + Mockito (Testing)
+Docker + Docker Compose
 
 🏗️ Estructura del Proyecto
 El proyecto sigue una arquitectura en capas:
@@ -53,9 +53,13 @@ Clima: Integración con OpenWeather para prever las condiciones climáticas del 
 Scheduled Tasks: Un proceso automático se ejecuta cada hora para marcar como FINALIZED las reservas cuya fecha y hora ya hayan pasado.
 
 📦 Configuración Necesaria
-Para correr el proyecto localmente, debes configurar las siguientes variables de entorno en tu application.properties:
+Para correr el proyecto localmente, debes configurar las siguientes variables de entorno:
 
-DB_PASSWORD: Contraseña de PostgreSQL.
+DATABASE_URL: URL JDBC de MySQL (por ejemplo jdbc:mysql://localhost:3306/alangulo).
+
+DB_USERNAME: Usuario de MySQL.
+
+DB_PASSWORD: Contraseña de MySQL.
 
 GOOGLE_CLIENT_SECRET: Secreto de cliente de Google Cloud Console.
 
